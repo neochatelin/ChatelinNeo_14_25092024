@@ -1,0 +1,137 @@
+#Home{
+    margin: 10px;
+    #stepper{
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .green{
+            background-color: rgb(29, 155, 240);
+            &::after{
+                display: flex;
+                padding-top: 5px;
+                padding-left: 2px;
+                content: url("../../../public/Combined-Shape.svg");
+                filter: invert(100%);
+                background-repeat: no-repeat;
+                height: 20px;
+            }
+        }
+        .blue{
+            background-color: rgb(29, 155, 240);
+        }
+        .blueAnim{
+            animation: bouleAnime 1s linear forwards;
+        }
+        .barreBleu{
+            background-color: rgba(128, 128, 128, 0.794);
+            &::after{
+                display: block;
+                background-color: rgb(29, 155, 240);
+                content: '';
+                height: 5px;
+                animation: barreAnime 0.5s forwards;
+            }
+        }
+
+        .grey{
+            background-color: rgba(128, 128, 128, 0.794);
+        }
+        .barre{
+            width: 30px;
+            height: 5px;
+        }
+        .boule{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+    }
+    #form{
+        display: flex;
+        flex-direction: column;
+        .flex{
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+            .step{
+                position: absolute;
+                .input_wrapp{
+                    .errorMsg{
+                        color: red;
+                    }
+                    .hide{
+                        margin: -10px;
+                    }
+                }
+            }
+            .hide{
+                transform: scale(0);
+            }
+            .animShow{
+                transform-origin: 0%;
+                transform: translateZ(0px);
+                animation: stepAnimationShow 1s forwards ease-in-out ;
+            }
+            .animHide{
+                transform: scale(0);
+                transform-origin: 100%;
+                transform: translateZ(-168px);
+                animation: stepAnimationHide 1s forwards ease-in-out ;
+            }
+            .subTitle{
+                font-size: large;
+                font-weight: bold;
+            }
+            select,input{
+                border: none;
+                border-bottom: 2px solid rgba(0, 0, 0, 0.296);
+                width: 164px;
+            }
+            select:focus,input:focus{
+                outline: none;  
+                border: none;
+                border-bottom: 2px solid rgba(0, 98, 255, 0.542);
+            }
+            select{
+                scrollbar-width: 1px;
+            }
+        }
+    }
+}
+
+@keyframes stepAnimationShow {
+    0% {transform: rotateY(-90deg) translateX(-168px);}
+    99% {transform: rotateY(0) translateX(0px);}
+    100% {transform: translateX(0px);}
+}
+ 
+@keyframes stepAnimationHide {
+    0% {transform: scale(1) rotateY(0deg) translateX(0px);}
+    99% {transform: rotateY(90deg) translateX(-168px);}
+    100% {transform: scale(0) translateX(-168px);}
+}
+
+@keyframes barreAnime {
+    0% {
+        left: 0;
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes bouleAnime {
+    0%{
+        background-color: rgba(128, 128, 128, 0.794);
+    }
+    50% {
+        background-color: rgba(128, 128, 128, 0.794);
+    }
+    100% {
+        background-color: rgb(29, 155, 240);
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "form1":{
+        "name":"form1",
+        "inputs":[
+            {"name":"firstName", "type":"text", "placeholder":"First Name", "error":["[a-zA-Z]+", "First name incorect"]},
+            {"name":"lastName", "type":"text", "placeholder":"Last Name", "error":["[a-zA-Z]+", "Last name incorect"]},
+            {"name":"birthDate", "type":"date", "label":"Birth Date"}
+        ],
+        "submit":{"type":"button", "value":"next"}
+    },
+    "form2":{
+        "name":"form2",
+        "inputs":[
+            {"name":"street", "type":"text", "placeholder":"Street", "error":["[a-zA-Z]+", "Street incorect"]},
+            {"name":"city", "type":"text", "placeholder":"City", "error":["[a-zA-Z]+", "City incorect"]},
+            {"name":"state", "type":"select", "placeholder":"State"},
+            {"name":"zip", "type":"number", "placeholder":"Zip code"},
+            {"name":"department", "type":"select", "placeholder":"Department"}
+        ],
+        "submit":{"type":"button", "value":"next"}
+    },
+    "form3":{
+        "name":"form3",
+        "inputs":[
+            {"name":"startDate", "type":"date", "placeholder":"Start Date"}
+        ],
+        "submit":{"type":"button", "value":"next"}
+    }
+}
