@@ -23,6 +23,18 @@ function Home() {
         api.getDepartements(setSelectDepartements)
         api.getForm(setFormObj)
     }, [])
+
+    const mergingData = (data)=>{
+        let tempObj = {};
+        data.map((obj)=>{
+            for (var key in obj){
+                var value = obj[key];
+                tempObj[key] = value;
+            }
+        })
+        return tempObj;
+    }
+
     const isLoaded = ()=>{
         if (selectStates && selectDepartements && formObj) {
             return (<div className="flex">
@@ -36,7 +48,7 @@ function Home() {
                     </div>
                     <div className={`step ${step===2?"animShow":"hide"}`}>
                         <p className="subTitle">Start Date</p>
-                        <CustomForm obj={formObj.form3} sub={(data)=>{let temp = elem; temp.push(data); let temp2=list; temp2.push(temp); setList(temp2); navigate('/list');}}/>
+                        <CustomForm obj={formObj.form3} sub={(data)=>{let temp = elem; temp.push(data); cetelem(temp); let temp2=list; temp2.push(mergingData(elem)); setList(temp2); navigate('/list');}}/>
                     </div>
                 </div>)
         }

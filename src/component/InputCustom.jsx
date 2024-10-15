@@ -17,7 +17,7 @@ let CustomForm = ({...props})=>{
         setFormulairError(formulairErrorTemplate);
         let error = false;
         let formulairErrorTemp = formulairErrorTemplate;
-        formulair.inputs.map(e => {            
+        formulair.inputs.map(e => {
             if (e.error) {
                 if(!formulairOut[e.name].match(e.error[0])){          
                     formulairErrorTemp[e.name] = true;
@@ -27,7 +27,6 @@ let CustomForm = ({...props})=>{
             }
         });
         
-        console.log(formulairError);
         return error
     }
 
@@ -46,7 +45,7 @@ let CustomForm = ({...props})=>{
                 {data.label ? 
                 <><label>{data.label}</label><br/></> : <></>}
                 {data.type === "select"?
-                <select>
+                <select onChange={(e)=>{props.out[data.name] = e.target.value}}>
                     {dataSelect[data.name].map((e)=>{
                         return <option key={e.value} value={e.value}>{e.name}</option>
                     })}
