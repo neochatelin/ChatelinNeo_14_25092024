@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/ChatelinNeo_14_25092024/static/css/main.ea43b517.css",
+    "main.js": "/ChatelinNeo_14_25092024/static/js/main.f8ff1823.js",
+    "static/js/453.a6a97343.chunk.js": "/ChatelinNeo_14_25092024/static/js/453.a6a97343.chunk.js",
+    "static/media/Combined-Shape.svg": "/ChatelinNeo_14_25092024/static/media/Combined-Shape.407ee28b4b66b2c79e79.svg",
+    "index.html": "/ChatelinNeo_14_25092024/index.html",
+    "static/media/arrow-sm-up-svgrepo-com.svg": "/ChatelinNeo_14_25092024/static/media/arrow-sm-up-svgrepo-com.4d617a72ad56efa3a647.svg",
+    "main.ea43b517.css.map": "/ChatelinNeo_14_25092024/static/css/main.ea43b517.css.map",
+    "main.f8ff1823.js.map": "/ChatelinNeo_14_25092024/static/js/main.f8ff1823.js.map",
+    "453.a6a97343.chunk.js.map": "/ChatelinNeo_14_25092024/static/js/453.a6a97343.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ea43b517.css",
+    "static/js/main.f8ff1823.js"
+  ]
+}
