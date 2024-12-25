@@ -1,0 +1,203 @@
+#Home{
+    --color1: #FF885B;
+    --color2: #FFE5CF;
+    --color3: #557C56;
+    --color4: #33372C;
+    background-color: #fff3e8;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    &.created{
+        background-color: var(--color4);
+        .createdScreen{
+            animation: createdAnim 1s linear;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .logo{
+                background-color: var(--color2);
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                &::after{
+                    display: flex;
+                    padding-top: 25px;
+                    padding-left: 20px;
+                    content: url("../../../public/Combined-Shape.svg");
+                    filter: brightness(0) saturate(100%) invert(17%) sepia(8%) saturate(1140%) hue-rotate(40deg) brightness(98%) contrast(87%);
+                    background-repeat: no-repeat;
+                    height: 50px;
+                }
+            }
+            h2{
+                display: inline;
+                color: var(--color2);
+            }
+        }
+        h2{
+            display: none;
+        }
+        #stepper{
+            display: none;
+        }
+        form{
+            display: none;
+        }
+    }
+    h2{
+        color: var(--color4);
+        padding-top: 5px;
+    }
+    #stepper{
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .green{
+            background-color: var(--color4);
+            &::after{
+                display: flex;
+                padding-top: 5px;
+                padding-left: 2px;
+                content: url("../../../public/Combined-Shape.svg");
+                filter: brightness(0) saturate(100%) invert(84%) sepia(31%) saturate(316%) hue-rotate(325deg) brightness(103%) contrast(107%);
+                background-repeat: no-repeat;
+                height: 20px;
+            }
+        }
+        .blue{
+            background-color: var(--color4);
+        }
+        .blueAnim{
+            animation: bouleAnime 1s linear forwards;
+        }
+        .barreBleu{
+            background-color: rgba(128, 128, 128, 0.794);
+            &::after{
+                display: block;
+                background-color: var(--color4);
+                content: '';
+                height: 5px;
+                animation: barreAnime 0.5s forwards;
+            }
+        }
+
+        .grey{
+            background-color: rgba(128, 128, 128, 0.794);
+        }
+        .barre{
+            width: 30px;
+            height: 5px;
+        }
+        .boule{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+    }
+    #form{
+        display: flex;
+        flex-direction: column;
+        .flex{
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+            .step{
+                position: absolute;
+                border: transparent solid 1px;
+                border-radius: 10px;
+                padding: 25px;
+                background-color: white;
+                box-shadow: #33372C 1px 1px 1px;
+                .input_wrapp{
+                    .errorMsg{
+                        color: red;
+                    }
+                    .hide{
+                        margin: -10px;
+                    }
+                }
+            }
+            .hide{
+                transform: scale(0);
+            }
+            .animShow{
+                transform-origin: 0%;
+                transform: translateZ(0px);
+                animation: stepAnimationShow 1s forwards ease-in-out ;
+            }
+            .animHide{
+                transform: scale(0);
+                transform-origin: 100%;
+                transform: translateZ(-168px);
+                animation: stepAnimationHide 1s forwards ease-in-out ;
+            }
+            .subTitle{
+                font-size: large;
+                font-weight: bold;
+            }
+            select,input{
+                border: 1px solid rgba(0, 0, 0, 0.296);
+                border-radius: 4px;
+                padding: 4px;
+                width: 164px;
+                background-color: transparent;
+                margin-top: 6px;
+            }
+            select:focus,input:focus{
+                outline: 2px solid #ff875b91;
+            }
+            select{
+                scrollbar-width: 1px;
+            }
+        }
+    }
+}
+
+@keyframes stepAnimationShow {
+    0% {transform: rotateY(-90deg) translateX(-168px);}
+    99% {transform: rotateY(0) translateX(0px);}
+    100% {transform: translateX(0px);}
+}
+ 
+@keyframes stepAnimationHide {
+    0% {transform: scale(1) rotateY(0deg) translateX(0px);}
+    99% {transform: rotateY(90deg) translateX(-168px);}
+    100% {transform: scale(0) translateX(-168px);}
+}
+
+@keyframes barreAnime {
+    0% {
+        left: 0;
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes bouleAnime {
+    0%{
+        background-color: rgba(128, 128, 128, 0.794);
+    }
+    50% {
+        background-color: rgba(128, 128, 128, 0.794);
+    }
+    100% {
+        background-color: var(--color4);
+    }
+}
+
+@keyframes createdAnim {
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}

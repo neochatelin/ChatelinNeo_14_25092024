@@ -1,0 +1,11 @@
+{
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "startDate": "Start Date",
+    "department": "Departement",
+    "birthDate": "Date of Birth",
+    "street": "Street",
+    "city": "City",
+    "state": "State",
+    "zip": "Zip Code"
+}

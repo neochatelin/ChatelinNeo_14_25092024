@@ -1,0 +1,73 @@
+@import url("./home.scss");
+@import url("./liste.scss");
+
+html{
+    background-color: #5a6f0710;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.hide{
+    transform: scale(0);
+}
+input[type=button], button{
+    cursor: pointer;
+}
+
+.Modal{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000063;
+    backdrop-filter: blur(10px);
+    animation: blurAnim .05s linear;
+    justify-content: center;
+    align-items: center;
+    .blur_filter{
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+    }
+    .modalWrap{
+        z-index: 1;
+        width: 520px;
+        height: 520px;
+        justify-content: center;
+        align-items: center;
+        .modalBox{
+            animation: modalAnim .10s linear;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            width: 520px;
+            height: 520px;
+            align-items: end;
+        }
+    }
+}
+
+@keyframes modalAnim {
+    0%{
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 100%;
+    }
+}
+@keyframes blurAnim {
+    0%{
+        backdrop-filter: blur(0);
+    }
+    80%{
+        backdrop-filter: blur(0px);
+    }
+    100%{
+        backdrop-filter: blur(10px);
+    }
+}

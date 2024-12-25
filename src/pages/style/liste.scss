@@ -1,0 +1,205 @@
+#Liste{
+    --color1: #FF885B;
+    --color2: #FFE5CF;
+    --color3: #557C56;
+    --color4: #33372C;
+    
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    nav{
+        display: flex;
+        max-width: 100%;
+        padding: 20px 40px;
+        justify-content: space-between;
+        button{
+            height: 40px;
+            padding: 0 10px;
+            background-color: var(--color4);
+            color: var(--color2);
+            border-radius: 20px;
+            &:hover{
+                background-color: var(--color3);
+                color: var(--color4);
+            }
+        }
+    }
+    table{
+        max-width: 90%;
+        color: #47493f;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        .param{
+            color: var(--color2);
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: var(--color4);
+            &:nth-child(1){
+                border-radius: 0;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+            div{
+                display: flex;
+                select{
+                    font-size: 16px;
+                    color: var(--color2);
+                    border: none;
+                    background-color: transparent;
+                    padding: 4px;
+                    transform: translateY(-4px);
+                    border-radius: 5px;
+                    &:hover{
+                        background-color: var(--color2);
+                        color: var(--color4);
+                    }
+                }
+            }
+            
+            .pagesNav{
+                display: flex;
+                gap: 20px;
+                p{
+                    padding-top: 5px;
+                }
+                button{
+                    color: var(--color2);
+                    background-color: transparent;
+                    border: none;
+                    padding: 4px;
+                    border-radius: 5px;
+                    &:hover{
+                        background-color: var(--color3);
+                        color: var(--color4);
+                    }
+                }
+            }
+        }
+        thead{
+            background-color: var(--color4);;
+            padding-bottom: 5px;
+            tr{
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                th{
+                    width: 120px;
+                    gap: 10px;
+                    padding: 0 10px;
+                    input{
+                        width: 100px;
+                        padding-left: 3px;
+                    }
+                    div{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        .focusedLabel{
+                            width: 93px;
+                            color: var(--color2);
+                            font-weight: 200;
+                            font-size: 14px;
+                            margin-left: -10px;
+                            color: var(--color2);
+                            transform: scale(.8) translateY(-20px) translateX(-10px);
+                            opacity: 0.5;
+                            animation:normal label_animation .1s;
+                        }
+                        .headerInput{
+                            position: absolute;
+                            background-color: transparent;
+                            color: var(--color2);
+                            opacity: 100%;
+                            border: none;
+                            &:focus{
+                                outline: none;
+                                &::placeholder{
+                                    color: transparent;
+                                    font-size: 14px;
+                                }
+
+                            }
+                            &::placeholder{
+                                color: var(--color2);
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    button{
+                        border: none;
+                        color: var(--color2);
+                        background-color: transparent;
+                        font-weight: bold;
+                    }
+                    .sortingButton{
+                        display: flex;
+                        flex-direction: column;
+                        button{
+                            color: transparent;
+                            width: 15px;
+                            height: 15px;
+                            transform: rotate(90deg);
+                            &::after{
+                                display: flex;
+                                content: url("../../../public/arrow-sm-up-svgrepo-com.svg");
+                                filter: brightness(0) saturate(100%) invert(85%) sepia(4%) saturate(1528%) hue-rotate(334deg) brightness(105%) contrast(107%);
+                                background-repeat: no-repeat;
+                                width: 15px;
+                                height: 15px;
+                            }
+                            &:nth-child(1){
+                                &::after{
+                                    transform: translateY(-15.5px) rotate(-90deg);
+                                }
+                            }
+                            &:nth-child(2){
+                                &::after{
+                                    transform: translateY(-15.5px) rotate(90deg);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        tbody{
+            color: var(--color4);
+            display: flex;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            background-color: var(--color2);;
+            flex-direction: column;
+            tr{
+                border-top: 1px solid var(--color4);;
+                display: flex;
+                flex-direction: row;
+                td{
+                    padding: 10px;
+                    &.firstItem{
+                        border: none;
+                    }
+                    border-left: 1px solid var(--color4);
+                    width: 120px;
+                }
+            }
+        }
+    }
+}
+
+@keyframes label_animation {
+    from{
+        color: var(--color2);
+        opacity: 1;
+        transform: scale(1)
+    }
+    
+    to{
+        opacity: 0.5;
+        transform: scale(.8) translateY(-20px) translateX(-10px);
+                            
+    }
+}
