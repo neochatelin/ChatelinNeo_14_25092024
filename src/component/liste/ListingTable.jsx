@@ -18,20 +18,29 @@ const ListingTable = ({...props})=>{
     }, [list])
 
     useEffect(()=>{
+        
     }, [filtredData, update]);
-    useEffect(()=>{
-        filtering()
-    }, [filter]);
-    
     let filtering = ()=>{
+
+        let temp;
         let selectedItems = [];
+
+        if (Object.keys(matchingTable).length !== Object.keys(filter).length) {
+            temp = {};
+            Object.keys(matchingTable).forEach((key)=>{
+                if(!filter[key]){
+                    temp[key] = "";
+                }
+            })
+        }
         
         list.forEach((value, index)=>{
             let keep = true;
             Object.keys(filter).forEach((field)=>{
                 if(filter[field] !== ""){
-                    const reg = new RegExp(filter[field]);
-                    if(value[field].search(reg) === -1){
+                    const reg = new RegExp(filter[field].toLowerCase());
+
+                    if(value[field].toLowerCase().search(reg) === -1){
                         keep = false;
                     }
                 }
@@ -40,9 +49,12 @@ const ListingTable = ({...props})=>{
                 selectedItems.push(value);
             }
         })
+
         SetFiltredData(selectedItems);
         setPage(1)
         setUpdate(update+1);
+        if (temp) 
+            SetFilter(Object.assign(filter, temp));
     }
 
     let sortingData = (feld, direction = 'asc')=>{
@@ -73,7 +85,7 @@ const ListingTable = ({...props})=>{
             return headList.map((e, index)=>
                 <th key={listData[index]} >
                     <div>
-                        <HeadInput name={e} listElem={listData[index]} value={filter[index]} filtering={(source)=>{SetFilter(Object.assign(filter, source))}}/>
+                        <HeadInput name={e} listElem={listData[index]} value={filter[listData[index]]} filtering={(source)=>{SetFilter(Object.assign(filter, source));filtering();}}/>
                         <div className="sortingButton">
                             <button onClick={()=>sortingData(listData[index], 'asc')}>{"<"}</button>
                             <button onClick={()=>sortingData(listData[index], 'desc')}>{">"}</button>
@@ -94,7 +106,7 @@ const ListingTable = ({...props})=>{
         let AddRow = ({data})=>{
             let Listing = ()=>{
                 return listData.map((value, index)=>{
-                    return <td className={index === 0 ? "firstItem" : ""} key={index}>{data[value]?data[value]:"N/A"}</td>
+                    return <td className={index === 0 ? "firstItem" : ""} key={index}><p>{data[value]?data[value]:"N/A"}</p></td>
                 })
             }
             return <tr><Listing/></tr>
@@ -104,7 +116,16 @@ const ListingTable = ({...props})=>{
             const element = ((page-1)*pagination)+index;
             if(filtredData[element]){tempList.push(filtredData[element])};
         }
-        return <tbody>{tempList.map((obj, index)=>{return <AddRow key={index}  data={obj}></AddRow>})}</tbody>
+
+        let bodyDisplay = ()=>{
+            if (tempList.length > 0)
+                return tempList.map((obj, index)=>{return <AddRow key={index}  data={obj}></AddRow>})
+            else
+                return <h3>No Result</h3>
+            
+        }
+
+        return <tbody>{bodyDisplay()}</tbody>
     }
 
     return (

@@ -114,12 +114,33 @@
                 padding: 25px;
                 background-color: white;
                 box-shadow: #33372C 1px 1px 1px;
-                .input_wrapp{
-                    .errorMsg{
-                        color: red;
+                form{
+                    display: flex;
+                    &.flex_column{
+                        flex-wrap: wrap;
+                        justify-content: space-between;
                     }
-                    .hide{
-                        margin: -10px;
+                    &.flex_row{
+                        flex-direction: column;
+                        flex-wrap: nowrap;
+                    }
+                    .input_wrapp{
+                        height: 50px;
+                        .errorMsg{
+                            color: red;
+                        }
+                        .hide{
+                            margin: -10px;
+                        }
+                    }
+                    .submit_input{
+                        margin: auto;
+                        margin-top: 40px;
+                        &:hover{
+                            background-color: var(--color3);
+                            color: var(--color2);
+                            border-color: var(--color2);
+                        }
                     }
                 }
             }
@@ -144,10 +165,22 @@
             select,input{
                 border: 1px solid rgba(0, 0, 0, 0.296);
                 border-radius: 4px;
-                padding: 4px;
-                width: 164px;
+                padding: 6px;
                 background-color: transparent;
                 margin-top: 6px;
+                font-size: 17px;
+            }
+            select{
+            }
+            /*
+                padding: 4px 14px 4px 14px;
+            
+                width: 164px;
+                width: 155px;
+            */
+            input{
+                width: 100%;
+
             }
             select:focus,input:focus{
                 outline: 2px solid #ff875b91;

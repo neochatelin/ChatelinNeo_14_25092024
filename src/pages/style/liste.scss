@@ -87,26 +87,36 @@
                 justify-content: space-between;
                 flex-direction: row;
                 th{
-                    width: 120px;
+                    display: flex;
+                    min-width: 140px;
+                    max-width: 140px;
                     gap: 10px;
-                    padding: 0 10px;
+                    flex-direction: row;
+                    justify-content: right;
+                    .headInputWrap{
+                        display: flex;
+                        justify-content: center;
+                        margin-right: -30px;
+                    }
+                    p{
+                        width: 120px;
+                        min-width: 120px;
+                    }
                     input{
-                        width: 100px;
-                        padding-left: 3px;
+                        width: 120px;
+                        min-width: 120px;
                     }
                     div{
                         display: flex;
                         flex-direction: row;
-                        justify-content: center;
                         .focusedLabel{
-                            width: 93px;
+                            display: flex;
                             color: var(--color2);
                             font-weight: 200;
                             font-size: 14px;
-                            margin-left: -10px;
-                            color: var(--color2);
                             transform: scale(.8) translateY(-20px) translateX(-10px);
                             opacity: 0.5;
+                        }.labelAnimation{
                             animation:normal label_animation .1s;
                         }
                         .headerInput{
@@ -138,6 +148,9 @@
                     .sortingButton{
                         display: flex;
                         flex-direction: column;
+                        justify-items: flex-end;
+                        justify-content: right;
+                        padding-right: 5px;
                         button{
                             color: transparent;
                             width: 15px;
@@ -173,12 +186,21 @@
             border-bottom-right-radius: 5px;
             background-color: var(--color2);;
             flex-direction: column;
+            h3{
+                padding: 30px 0;
+            }
             tr{
                 border-top: 1px solid var(--color4);;
                 display: flex;
                 flex-direction: row;
                 td{
                     padding: 10px;
+                    overflow: hidden;
+                    p{
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                    }
                     &.firstItem{
                         border: none;
                     }
@@ -200,6 +222,5 @@
     to{
         opacity: 0.5;
         transform: scale(.8) translateY(-20px) translateX(-10px);
-                            
     }
 }

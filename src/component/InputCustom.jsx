@@ -8,7 +8,7 @@ let CustomForm = ({...props})=>{
 
     props.obj.inputs.forEach((e)=>{
         formulairOut[e.name] = '';
-        formulairErrorTemplate[e.name] = false
+        formulairErrorTemplate[e.name] = false;
     })
 
     let subFunction = props.sub;
@@ -40,28 +40,40 @@ let CustomForm = ({...props})=>{
         const data = props.data[0];
         const dataSelect = props.data[1];
         
+        let element = <></>;
+
+        switch (data.type) {
+            case "select":
+                element =
+                    <select onChange={(e)=>{props.out[data.name] = e.target.value}}>
+                        {dataSelect[data.name].map((e)=>{
+                            return <option key={e.value} value={e.value}>{e.name}</option>
+                        })}
+                    </select>
+                break;
+            case "hide":
+                    element = <><input type="text" disabled className="disabled"/></>
+                break;
+            default:
+                    element = <input name={data.name} placeholder={data.placeholder} type={data.type} defaultValue={data.value?data.value:''} onChange={(e)=>{props.out[data.name] = e.target.value}}/>
+                break;
+        }
+            
         return (<>
             <div className="input_wrapp">
-                {data.label ? 
-                <><label>{data.label}</label><br/></> : <></>}
-                {data.type === "select"?
-                <select onChange={(e)=>{props.out[data.name] = e.target.value}}>
-                    {dataSelect[data.name].map((e)=>{
-                        return <option key={e.value} value={e.value}>{e.name}</option>
-                    })}
-                </select>:
-                <input name={data.name} placeholder={data.placeholder} type={data.type} defaultValue={data.value?data.value:''} onChange={(e)=>{props.out[data.name] = e.target.value}}/>}
+                {data.label?<><label>{data.label}</label><br/></>:<></>}
+                {element}
                 {data.error?<p className={`errorMsg ${formulairError?formulairError[data.name]?'':'hide':'hide'}`}>{data.error[1]}</p>:''}
             </div>
         </>)
     }
-
+    
     return(
-        <form>{
+        <form className={"flex_"+formulair.direction}>{
             formulair.inputs.map((e)=>{                                  
                 return (<Input key={e.name} data={[e, props.data]} out={formulairOut} error={false}/>)})
             }
-            <input type="button" defaultValue={formulair.submit.value} onClick={()=>submitFunction(formulairOut)}/>
+            <input className="submit_input" type="button" defaultValue={formulair.submit.value} onClick={()=>submitFunction(formulairOut)}/>
         </form>)
 }
 

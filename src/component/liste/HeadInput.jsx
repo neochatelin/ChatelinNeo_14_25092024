@@ -9,12 +9,21 @@ const HeadInput = (props)=>{
     let value = props.value;
 
     let filtering = props.filtering;
+
+    const blurFunc = (e)=>{
+        if (e.target.value === "")
+            setStyleLabel("hide");
+        else
+            setStyleLabel("focusedLabel");
+        if(value !== e.target.value)
+            filtering({[listElem]: e.target.value});
+    }
     
     return(
-        <>
+        <div className="headInputWrap">
             <p htmlFor={listElem} className={styleLabel}>{nameElem}</p>
-            <input name={listElem} type="text" className="headerInput" placeholder={nameElem} onFocus={()=>{setStyleLabel("focusedLabel")}} onBlur={(e)=>{e.target.value === "" ? setStyleLabel("hide"): setStyleLabel("focusedLabel");filtering({[listElem]: e.target.value})}} defaultValue={value} ref={refElem}></input>
-        </>
+            <input name={listElem} type="text" className="headerInput" placeholder={nameElem} onFocus={(e)=>{e.target.value === ""?setStyleLabel("focusedLabel labelAnimation"):setStyleLabel("focusedLabel")}} onBlur={(e)=>{blurFunc(e)}} defaultValue={value?value:""} ref={refElem}></input>
+        </div>
     )
 }
 
