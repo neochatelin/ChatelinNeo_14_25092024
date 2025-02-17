@@ -35,7 +35,7 @@ input[type=button], button{
     .modalWrap{
         z-index: 1;
         width: 520px;
-        height: 520px;
+        height: 550px;
         justify-content: center;
         align-items: center;
         .modalBox{
@@ -44,7 +44,7 @@ input[type=button], button{
             display: flex;
             flex-direction: column;
             width: 520px;
-            height: 520px;
+            height: 550px;
             align-items: end;
         }
     }

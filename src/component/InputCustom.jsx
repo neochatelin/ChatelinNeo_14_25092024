@@ -31,6 +31,8 @@ let CustomForm = ({...props})=>{
     }
 
     let submitFunction = (data)=>{        
+        console.log(data);
+        
         let gotError = cheackingError();
         if (!gotError) {
             subFunction(data)

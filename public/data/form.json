@@ -5,7 +5,7 @@
         "inputs":[
             {"name":"firstName", "type":"text", "placeholder":"First Name", "error":["[a-zA-Z]+", "First name incorect"]},
             {"name":"lastName", "type":"text", "placeholder":"Last Name", "error":["[a-zA-Z]+", "Last name incorect"]},
-            {"name":"birthDate", "type":"date", "label":"Birth Date"}
+            {"name":"birthDate", "type":"date", "label":"Birth Date", "error":["^\\d{4}-\\d{2}-\\d{2}$", "date incorect"]}
         ],
         "submit":{"type":"button", "value":"Next"}
     },
@@ -15,9 +15,9 @@
         "inputs":[
             {"name":"street", "type":"text", "placeholder":"Street", "error":["[a-zA-Z]+", "Street incorect"]},
             {"name":"city", "type":"text", "placeholder":"City", "error":["[a-zA-Z]+", "City incorect"]},
-            {"name":"state", "type":"select", "placeholder":"State"},
-            {"name":"zip", "type":"number", "placeholder":"Zip code"},
-            {"name":"department", "type":"select", "placeholder":"Department"}
+            {"name":"state", "type":"select", "placeholder":"State", "error":["^[A-Z]{2}$", "State incorect"]},
+            {"name":"zip", "type":"number", "placeholder":"Zip code", "min":1000, "max":9999, "error":["^\\d{4}$", "Zip code incorect"]},
+            {"name":"department", "type":"select", "placeholder":"Department", "error":["[a-zA-Z]+", "selectionner un departement"]}
         ],
         "submit":{"type":"button", "value":"Next"}
     },
@@ -25,7 +25,7 @@
         "name":"form3",
         "direction": "row",
         "inputs":[
-            {"name":"startDate", "type":"date", "placeholder":"Start Date"}
+            {"name":"startDate", "type":"date", "placeholder":"Start Date", "error":["^\\d{4}-\\d{2}-\\d{2}$", "date incorect"]}
         ],
         "submit":{"type":"button", "value":"Save"}
     }

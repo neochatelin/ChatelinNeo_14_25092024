@@ -16,7 +16,6 @@ function Form(props) {
 
     const [elem, cetelem] = useState([]);
 
-    props.end(false);
     useEffect(()=>{
         api.getStates(setSelectStates)
         api.getDepartements(setSelectDepartements)
@@ -53,7 +52,7 @@ function Form(props) {
                     </div>
                     <div className={`step ${step===2?"animShow":"hide"}`}>
                         <p className="subTitle">Start Date</p>
-                        <CustomForm obj={formObj.form3} sub={(data)=>{let temp = elem; temp.push(data); cetelem(temp); setStep(step + 1); saving();setTimeout(()=>{props.end(true); setStep(0)}, 3000);}}/>
+                        <CustomForm obj={formObj.form3} sub={(data)=>{let temp = elem; temp.push(data); cetelem(temp); setStep(step + 1); saving();setTimeout(()=>{setStep(0); props.closeModal()}, 3000);}}/>
                     </div>
                 </div>)
         }

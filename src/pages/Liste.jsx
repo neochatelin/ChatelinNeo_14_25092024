@@ -3,8 +3,8 @@ import { Context } from "../App";
 import ListingTable from "../component/liste/ListingTable";
 import matchingTable from "../config/matchingTable.json"
 import mockTable from "../config/MOCK_DATA.json"
-import Modal from "../component/Modal";
 import Form from "./Form";
+import { Modal } from "modal_oc_project_14_nc";
 
 function Liste() {
     const [list, setList] = useContext(Context);
@@ -34,7 +34,8 @@ function Liste() {
                     <ListingTable list={list} matchingTable={matchingTable}/>:
                     <h2>is Loading</h2>
             }
-            <Modal element={Form} isOpen={modalIsOpen} setIsOpen={setModalIsOpen}/>
+            
+            <Modal element={<Form/>} state={[modalIsOpen, setModalIsOpen]}/>
         </div>
     )
 }
