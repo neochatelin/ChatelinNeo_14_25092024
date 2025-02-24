@@ -3,7 +3,6 @@ import "./style/style.scss"
 import { useContext, useEffect, useState } from "react";
 import Stepper from "../component/Stepper";
 import { Context } from "../App";
-import { NavLink, useNavigate } from "react-router-dom";
 import { api } from "../service/api";
 
 function Form(props) {
