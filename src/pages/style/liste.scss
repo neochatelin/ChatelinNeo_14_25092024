@@ -24,7 +24,7 @@
             }
         }
     }
-    table{
+    .table{
         max-width: 90%;
         color: #47493f;
         display: flex;
@@ -79,14 +79,15 @@
                 }
             }
         }
-        thead{
+        .thead{
             background-color: var(--color4);;
             padding-bottom: 5px;
-            tr{
+            .tr{
+                display: table-row;
                 display: flex;
                 justify-content: space-between;
                 flex-direction: row;
-                th{
+                .th{
                     display: flex;
                     min-width: 140px;
                     max-width: 140px;
@@ -179,9 +180,9 @@
                 }
             }
         }
-        tbody{
-            color: var(--color4);
+        .tbody{
             display: flex;
+            color: var(--color4);
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
             background-color: var(--color2);;
@@ -189,11 +190,11 @@
             h3{
                 padding: 30px 0;
             }
-            tr{
+            .tr{
                 border-top: 1px solid var(--color4);;
                 display: flex;
                 flex-direction: row;
-                td{
+                .td{
                     padding: 10px;
                     overflow: hidden;
                     p{

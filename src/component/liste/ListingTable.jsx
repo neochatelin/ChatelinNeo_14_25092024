@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import HeadInput from "./HeadInput";
 
 const ListingTable = ({...props})=>{
@@ -83,7 +83,7 @@ const ListingTable = ({...props})=>{
                 listData.push(key);
             })
             return headList.map((e, index)=>
-                <th key={listData[index]} >
+                <div className="th" key={listData[index]} >
                     <div>
                         <HeadInput name={e} listElem={listData[index]} value={filter[listData[index]]} filtering={(source)=>{SetFilter(Object.assign(filter, source));filtering();}}/>
                         <div className="sortingButton">
@@ -91,25 +91,25 @@ const ListingTable = ({...props})=>{
                             <button onClick={()=>sortingData(listData[index], 'desc')}>{">"}</button>
                         </div>
                     </div>
-                </th>
+                </div>
             );
         }
         return (
-        <thead>
-            <tr>
+        <div className="thead">
+            <div className="tr">
                 <Listing/>
-            </tr>
-        </thead>)
+            </div>
+        </div>)
     }
 
     let Body = ()=>{
         let AddRow = ({data})=>{
             let Listing = ()=>{
                 return listData.map((value, index)=>{
-                    return <td className={index === 0 ? "firstItem" : ""} key={index}><p>{data[value]?data[value]:"N/A"}</p></td>
+                    return <div className={index === 0 ? "td firstItem" : "td"} key={index}><p>{data[value]?data[value]:"N/A"}</p></div>
                 })
             }
-            return <tr><Listing/></tr>
+            return <div className="tr"><Listing/></div>
         }
         let tempList = [];
         for (let index = 0; index < pagination; index++) {
@@ -125,12 +125,12 @@ const ListingTable = ({...props})=>{
             
         }
 
-        return <tbody>{bodyDisplay()}</tbody>
+        return <div className="tbody">{bodyDisplay()}</div>
     }
 
     return (
         <> 
-            <table>
+            <div className="table">
                 <div className="param">
                     <div>
                         <p>Items per pages: </p>
@@ -175,29 +175,29 @@ const ListingTable = ({...props})=>{
                             <option value="50">50</option>
                         </select>
                     </div>
-                <div className="pagesNav">
-                    <button onClick={
-                        ()=>{setPage(1)}
-                        }>{"<<"}</button>
+                    <div className="pagesNav">
+                        <button onClick={
+                            ()=>{setPage(1)}
+                            }>{"<<"}</button>
+                            <button onClick={
+                                ()=>{
+                                    page > 1
+                                        ?setPage(page-1)
+                                        :setPage(1)
+                                }
+                                }>{"<"}</button>
+                        <p>{page}</p>
                         <button onClick={
                             ()=>{
-                                page > 1
-                                    ?setPage(page-1)
-                                    :setPage(1)
-                            }
-                            }>{"<"}</button>
-                    <p>{page}</p>
-                    <button onClick={
-                        ()=>{
-                            page < (filtredData.length / pagination)
-                                ?setPage(page+1)
-                                :setPage(pageMax());
-                        }}>{">"}</button>
-                        <button onClick={
-                            ()=>{setPage(pageMax())}}>{">>"}</button>
+                                page < (filtredData.length / pagination)
+                                    ?setPage(page+1)
+                                    :setPage(pageMax());
+                            }}>{">"}</button>
+                            <button onClick={
+                                ()=>{setPage(pageMax())}}>{">>"}</button>
+                    </div>
                 </div>
             </div>
-            </table>
         </>
     );
 }
