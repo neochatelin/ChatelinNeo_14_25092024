@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Liste from './pages/Liste';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
 
 export const Context = createContext();
 
