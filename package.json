@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "modal_oc_project_14_nc": "^1.0.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -18,7 +15,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "npm i @babel/plugin-transform-private-property-in-object --save-dev --force && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -41,7 +38,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-transform-private-property-in-object": "^7.25.9",
-    "gh-pages": "^6.2.0"
+    "@babel/plugin-transform-private-property-in-object": "^7.25.9"
   }
 }
