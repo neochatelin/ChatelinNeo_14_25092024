@@ -8,7 +8,7 @@ import { Modal } from "modal_oc_project_14_nc";
 
 function Liste() {
     const [list, setList] = useContext(Context);
-    const [mock, setMock] = useState(true);
+    const [mock, setMock] = useState(false);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     
     useEffect(()=>{
