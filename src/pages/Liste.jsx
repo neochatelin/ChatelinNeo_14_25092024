@@ -25,7 +25,7 @@ function Liste() {
     return(
         <div id="Liste">
             <nav>
-                <img src="./logo.png" alt="logo" loading="lazy"/>
+                <img src="./logo.png" alt="logo" width={100} height={115}/>
                 <button onClick={()=>OpenModal()}>Add Employees</button>
             </nav>
             <h1>Current Employees</h1>
