@@ -1,6 +1,7 @@
 *{
   scrollbar-width: thin;
   font-family: "Raleway", Arial, sans-serif;
+  font-display: swap;
 }
 body {
   margin: 0;
