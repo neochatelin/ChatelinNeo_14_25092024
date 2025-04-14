@@ -158,12 +158,16 @@
                             height: 15px;
                             transform: rotate(90deg);
                             &::after{
-                                display: flex;
-                                content: url("../../../public/arrow-sm-up-svgrepo-com.svg");
-                                filter: brightness(0) saturate(100%) invert(85%) sepia(4%) saturate(1528%) hue-rotate(334deg) brightness(105%) contrast(107%);
-                                background-repeat: no-repeat;
+                                content: "";
+                                display: inline-block;
                                 width: 15px;
                                 height: 15px;
+                                background-image: url('../../../public/arrow-sm-up-svgrepo-com.svg');
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                background-position: center;
+                                filter: brightness(0) saturate(100%) invert(85%) sepia(4%) saturate(1528%) hue-rotate(334deg) brightness(105%) contrast(107%);
+
                             }
                             &:nth-child(1){
                                 &::after{

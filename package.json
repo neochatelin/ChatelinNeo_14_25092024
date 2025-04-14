@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "modal_oc_project_14_nc": "^1.0.2",
+    "modal_oc_project_14_nc": "^1.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^6.26.2",
