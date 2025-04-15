@@ -35,7 +35,7 @@ const ListingTable = ({...props})=>{
             })
         }
         
-        filtredData.forEach((value, index)=>{
+        list.forEach((value, index)=>{
             let keep = true;
             Object.keys(filter).forEach((field)=>{
                 if(filter[field] !== ""){
