@@ -1,13 +1,15 @@
-import { useContext, useEffect, useState } from "react";
-import { Context } from "../App";
+import { useCallback, useEffect, useState } from "react";
 import ListingTable from "../component/liste/ListingTable";
 import matchingTable from "../config/matchingTable.json"
 import mockTable from "../config/MOCK_DATA.json"
 import Form from "./Form";
 import { Modal } from "modal_oc_project_14_nc";
+import { useDispatch } from "react-redux";
+import { set } from "../service/store";
 
 function Liste() {
-    const [list, setList] = useContext(Context);
+    const dispatch = useDispatch();
+    const setList = useCallback((val) => dispatch(set(val)), [dispatch]);
     const [mock, setMock] = useState(true);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     
@@ -31,7 +33,7 @@ function Liste() {
             <h1>Current Employees</h1>
             {
                 matchingTable?
-                    <ListingTable list={list} matchingTable={matchingTable}/>:
+                    <ListingTable matchingTable={matchingTable}/>:
                     <h2>is Loading</h2>
             }
             

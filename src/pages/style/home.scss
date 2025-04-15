@@ -23,10 +23,16 @@
                 height: 100px;
                 border-radius: 50%;
                 &::after{
+                    content: "";
+                    display: inline-block;
+                    background-image: url('../../../public/Combined-Shape.svg');
+                    background-size: contain;
+                    background-position: center;
+
                     display: flex;
                     padding-top: 25px;
                     padding-left: 20px;
-                    content: url("../../../public/Combined-Shape.svg");
+                    content: "";
                     filter: brightness(0) saturate(100%) invert(17%) sepia(8%) saturate(1140%) hue-rotate(40deg) brightness(98%) contrast(87%);
                     background-repeat: no-repeat;
                     height: 50px;
@@ -59,10 +65,15 @@
         .green{
             background-color: var(--color4);
             &::after{
+                content: "";
+                background-image: url('../../../public/arrow-sm-up-svgrepo-com.svg');
+                background-size: contain;
+                background-position: center;
+
                 display: flex;
                 padding-top: 5px;
                 padding-left: 2px;
-                content: url("../../../public/Combined-Shape.svg");
+                background-image: url("../../../public/Combined-Shape.svg");
                 filter: brightness(0) saturate(100%) invert(84%) sepia(31%) saturate(316%) hue-rotate(325deg) brightness(103%) contrast(107%);
                 background-repeat: no-repeat;
                 height: 20px;
@@ -131,6 +142,7 @@
                         }
                         .hide{
                             margin: -10px;
+                            color: transparent;
                         }
                     }
                     .submit_input{
@@ -170,9 +182,9 @@
                 margin-top: 6px;
                 font-size: 17px;
             }
+            /*
             select{
             }
-            /*
                 padding: 4px 14px 4px 14px;
             
                 width: 164px;

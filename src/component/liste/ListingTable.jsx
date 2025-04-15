@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import HeadInput from "./HeadInput";
+import { useSelector } from "react-redux";
 
 const ListingTable = ({...props})=>{
     let [pagination, setPagination] = useState(10);
     let [page, setPage] = useState(1);
 
-    let list = props.list;
+    const list = useSelector(state => state.employee);
     let listData = [];
     let matchingTable = props.matchingTable;
 
     let [update, setUpdate] = useState(0);
-    let [filtredData, SetFiltredData] = useState(list);
+    let [filtredData, SetFiltredData] = useState(useSelector(state => state.employee));    
     let [filter, SetFilter] = useState({});
 
     useEffect(()=>{
@@ -34,7 +35,7 @@ const ListingTable = ({...props})=>{
             })
         }
         
-        list.forEach((value, index)=>{
+        filtredData.forEach((value, index)=>{
             let keep = true;
             Object.keys(filter).forEach((field)=>{
                 if(filter[field] !== ""){
@@ -57,9 +58,8 @@ const ListingTable = ({...props})=>{
             SetFilter(Object.assign(filter, temp));
     }
 
-    let sortingData = (feld, direction = 'asc')=>{
-        
-        let temp = filtredData;
+    let sortingData = (feld, direction = 'asc')=>{        
+        let temp = JSON.parse(JSON.stringify(filtredData));
         temp.sort((a, b)=>{
             return ('' + a[feld]).localeCompare(b[feld]);
         })

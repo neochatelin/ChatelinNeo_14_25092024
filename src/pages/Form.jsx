@@ -1,9 +1,10 @@
 import {CustomForm} from "../component/InputCustom";
 import "./style/style.scss"
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Stepper from "../component/Stepper";
-import { Context } from "../App";
 import { api } from "../service/api";
+import { useDispatch } from "react-redux";
+import { addEmployee } from "../service/store";
 
 function Form(props) {
     const [selectStates, setSelectStates] = useState();
@@ -11,7 +12,7 @@ function Form(props) {
     const [formObj, setFormObj] = useState();
 
     const [step, setStep] = useState(0);
-    const [list, setList] = useContext(Context);
+    const dispatch = useDispatch();
 
     const [elem, cetelem] = useState([]);
 
@@ -33,9 +34,7 @@ function Form(props) {
     }
 
     const saving = ()=>{
-        let tempList=list;
-        tempList.push(mergingData(elem));
-        setList(tempList);
+        dispatch(addEmployee(mergingData(elem)));
     }
 
     const isLoaded = ()=>{
